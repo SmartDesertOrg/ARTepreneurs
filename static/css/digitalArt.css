@@ -1,0 +1,15 @@
+
+body {
+    color: #777777;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    background-image: url("/static/img/art24.jpg");
+    background-repeat:no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    background-position:center;
+    z-index: -100;
+}
+

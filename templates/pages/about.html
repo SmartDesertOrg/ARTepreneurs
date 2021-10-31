@@ -1,0 +1,165 @@
+{% extends 'layouts/boilerplate.html' %}
+{% block title %}-About{% endblock %}
+{% block links %}
+<link href="/static/css/style.css" rel="stylesheet">
+{%endblock%}
+
+{% block content %}
+
+ <!-- Page Header Start -->
+ <div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>About Us</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Home</a>
+                <a href="">About Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- About Start -->
+<div class="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-img" data-parallax="scroll" data-image-src="/static/img/about.jpg"></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="section-header">
+                    <p>Learn About Us</p>
+                    <h2>Art platform for you</h2>
+                </div>
+                <div class="about-tab">
+                    <ul class="nav nav-pills nav-justified">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#tab-content-1">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#tab-content-2">Mission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#tab-content-3">Vision</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="tab-content-1" class="container tab-pane active">
+                            We are a team of 3 focused in bringing you the best platform to showcase your artwork or check out what others have done
+                        </div>
+                        <div id="tab-content-2" class="container tab-pane fade">
+                            Provide a fair website for art buying and selling
+                        </div>
+                        <div id="tab-content-3" class="container tab-pane fade">
+                          Bring about interest in art
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Team Start -->
+<div class="team">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Meet Our Team</p>
+            <h2>This is Us!!</h2>
+        </div>
+        <div class="row" style="justify-content: space-between;">
+            <div class="col-lg-3 col-md-6">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="/static/img/4a3bbab88d211a1c.jpg" alt="Team Image">
+                    </div>
+                    <div class="team-text">
+                        <h2>Shivansh Singh</h2>
+                        <p>Developer</p>
+                        <div class="team-social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="/static/img/rohit.jpg" alt="Team Image">
+                    </div>
+                    <div class="team-text">
+                        <h2>Rohit S Jadhav</h2>
+                        <p>Developer</p>
+                        <div class="team-social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="/static/img/shreesha.jpg" alt="Team Image">
+                    </div>
+                    <div class="team-text">
+                        <h2>C V Shreesha</h2>
+                        <p>Developer</p>
+                        <div class="team-social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+
+<!-- Testimonial Start -->
+<div class="testimonial">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Testimonial</p>
+            <h2>Happy artists with us!</h2>
+        </div>
+        <div class="owl-carousel testimonials-carousel">
+            {% for art in artist %}
+            <div class="testimonial-item">
+                <div class="testimonial-profile">
+                    <img src="/static/img/default.png" alt="Image">
+                    <div class="testimonial-name">
+                        <h3>{{art.artist_name}}</h3>
+                        <p>{{art.title}}</p>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    <p>
+                        I Love ARTIFY! 
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+
+
+{% endblock %}

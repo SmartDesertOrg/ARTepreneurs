@@ -1,0 +1,22 @@
+{% extends 'layouts/art.html' %}
+{% block title %}-digitalArts{% endblock %}
+{% block art %}Digital Art{% endblock %}
+{% block links %} 
+<link rel="stylesheet" href="/static/css/digitalArt.css">
+{% endblock %}
+{% block content %}
+{% for digitalArt in digitalArt%}
+<div class="col-6 col-lg-3 mb-5">
+    <div class="card w-auto h-auto text-center">
+        <a href="paint" target="_blank"><img class="img-fluid" src="{{url_for('static',filename='/img/'+digitalArt.images)}}" alt=""></a>
+        <div class="card-body">
+            <h5 class="card-title">{{ digitalArt.title }}</h5>
+            <p class="card-text">{{ digitalArt.description }}</p>
+            <a class="btn btn-custom" href="{{url_for('single_product',product_id=digitalArt.item_id)}}" target="_blank">Learn More</a>
+          
+            
+        </div><!--//card-body-->
+    </div><!--//card-->
+</div><!--//col-->
+{% endfor %}
+{% endblock %}

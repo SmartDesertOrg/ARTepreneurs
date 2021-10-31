@@ -1,0 +1,110 @@
+{% extends 'layouts/boilerplate.html' %}
+{% block title %}-Acoount{% endblock %}
+{% block links %}
+<link href="/static/css/stylboiler.css" rel="stylesheet">
+<link href="/static/css/account.css" rel="stylesheet">
+{%endblock%}
+
+{% block content %}
+
+<div class="container-fluid" >
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-6 col-md-12">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-">
+                                <div class="m-b-25"> <img src='{{ dp }}' class="display_picture" alt="User-Profile-Image"> </div>
+                                <h6 class="f-w-600 text-muted">{{ current_user.fname }} {{ current_user.lname }}</h6>
+                                <p></p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <h6 class="m-b-20 p-b-5 text-muted b-b-default f-w-600">Information</h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 text-muted f-w-600">Email</p>
+                                        <h6 class="text-muted f-w-400">{{ current_user.email }}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 text-muted f-w-600">Phone</p>
+                                        <!-- <h6 class="text-muted f-w-400">{{current_user.pno}}</h6> -->
+                                    </div>
+                                </div>
+                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default text-muted f-w-600">Other Info</h6>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 text-muted f-w-600">Saved Addresses</p>
+                                        <h6 class="text-muted f-w-400">{{ current_user.address }}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 text-muted f-w-600">Orders</p>
+                                        <!-- <h6 class="text-muted f-w-400">{{ current_user.orders }}</h6> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form method="POST" action="#" class="d-flex flex-column container-fluid" enctype="multipart/form-data">
+                            {{ form.hidden_tag() }}
+                            <div class="h3 text-center text-white">Update Account</div>
+                            <div class="d-flex align-items-center input-field my-3 mb-4"> <span class="far fa-user p-2"></span>
+                                {{ form.fname.label(class="form-control-label") }}
+                
+                                {% if form.fname.errors %}
+                                {{ form.fname(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for err in form.fname.errors %}
+                                    <span>{{ err }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                
+                                {{ form.fname(class="form-control") }}
+                            </div>
+                            <div class="d-flex align-items-center input-field my-3 mb-4"> <span class="far fa-user p-2"></span>
+                                {{ form.lname.label(class="form-control-label") }}
+                                {% if form.lname.errors %}
+                                {{ form.lname(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for err in form.lname.errors %}
+                                    <span>{{ err }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                
+                                {{ form.lname(class="form-control") }} </div>
+                            <div class="d-flex align-items-center input-field my-3 mb-4"> <span class="far fa-user p-2"></span>
+                                {{ form.email.label(class="form-control-label") }}
+                                {% if form.email.errors %}
+                                {{ form.email(class="form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for err in form.email.errors %}
+                                    <span>{{ err }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                
+                                {{ form.email(class="form-control") }} </div>
+                            <div class="d-flex align-items-center input-field my-3 mb-4">
+                                {{ form.picture.label() }}
+                                {{ form.picture(class="form-control-file") }}
+                                {% if form.picture.errors %}
+                                    {% for error in form.picture.errors %}
+                                        <span class="text-danger">{{ error }}</span><br>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="my-3">
+                                {{ form.submit(class="btn btn-primary") }}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

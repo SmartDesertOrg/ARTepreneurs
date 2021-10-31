@@ -1,0 +1,27 @@
+{% extends 'layouts/boilerplate.html' %}
+{% block links %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/final.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-black pt-5 mt-5">
+    <h1>Order Successfully Placed!</h1>
+    <h5>Items Ordered:</h5>
+    <div class="d-grid">
+        {% for item in items %}
+        <div class="product-item">
+            <a class="product-thumb" href="#"><img src="{{url_for('static',filename='/img/'+item.images)}}" alt="Product" style="height: 200px; width: 200px;"></a>
+            <div class="product-info">
+                <h4 class="product-title"><a href="#">{{ item.title }}</a></h4>
+                <h4>{{item.item_quantity}}</h4>
+            </div>
+        </div>
+        {% endfor %}
+        <a href="{{url_for('home')}}" class="btn btn-custom">Return to Home</a>
+    </div>
+</div>
+
+{% endblock %}
