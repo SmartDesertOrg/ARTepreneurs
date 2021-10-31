@@ -1,0 +1,57 @@
+{% extends 'layouts/boilerplate.html' %}
+{% block title %}-Cart{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/cartstyle.css">
+{%endblock%}
+
+{% block content %}
+{% if cart_len != 0 %}
+<!-- Shopping Cart-->
+<div class="table-responsive shopping-cart pt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th class="text-center">Price</th>
+                <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="{{url_for('clear_cart')}}">Clear Cart</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>
+                    <div class="product-item">
+                        <a class="product-thumb" href="#"><img src="{{url_for('static',filename='/img/'+product.images)}}" alt="Product" style="height: 200px; width: 200px;"></a>
+                        <div class="product-info">
+                            <h3 class="text-black"><a href="#">{{ product.title }}</a></h3>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center text-black">{{ product.price }}</td>
+                <td class="text-center"><a class="remove-from-cart" href="{{ url_for('delete_from_cart',id=product.id) }}" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="shopping-cart-footer">
+    <div class="column text-lg">Subtotal: <span class="text-medium">{{ cart_total }}</span></div>
+</div>
+<div class="shopping-cart-footer">
+    <div class="column"><a class="btn btn-custom" href="{{url_for('categories')}}"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
+    <div class="column"><a class="btn btn-custom" href="{{url_for('address')}}">Continue</a></div>
+</div>
+</div>
+{% else %}
+<div class="wrapper container pt-5 mt-5">
+    <div class="card w-100 h-100">
+        <img src="/static/img/preview.png" alt="empty cart" class="h-50 w-50">
+        <h1 class="text-black">Your Cart is empty, add more items </h1>
+        <a class="btn btn-custom" href="{{url_for('categories')}}">Browse More Art</a>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

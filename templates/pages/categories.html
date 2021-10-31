@@ -1,0 +1,147 @@
+{% extends 'layouts/boilerplate.html' %}
+{% block title %}-Categories{% endblock %}
+{% block links %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9Ah30zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<link href="/static/css/categories.css" rel="stylesheet">
+{%endblock%}
+
+{% block content %}
+
+    <!--Main layout-->
+    <main class="pt-5">
+        <div class="container-fluid pt-5">
+     
+          <!--Section: Content-->
+          <section class="text-center text-black">
+            <h3 class="mb-5"><strong>Paintings</strong></h3>
+  
+            <div class="row d-sm-flex container-fluid" style="justify-content: space-evenly;">
+              {% for painting in paintings[:3] %}
+              <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card h-auto w-auto">
+                  <img
+                      src="{{url_for('static',filename='/img/'+painting.images)}}"
+                      class="card-img-top img-fluid"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">{{painting.title}}</h5>
+                    <p class="card-text">
+                        {{painting.description}}
+                    </p>
+                    <a href="{{url_for('single_product',product_id=painting.item_id)}}" class="btn btn-custom">View Details</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <a href="{{url_for('paintings')}}" class="btn btn-custom" >View More</a>
+
+          </section>
+          <!--Section: Content-->
+  
+          <hr class="my-5" />
+  
+  
+  
+          <!--Section: Content-->
+          <section class="text-center text-black">
+            <h3 class="mb-5"><strong>Digital Art</strong></h3>
+  
+            <div class="row">
+
+              {% for da in digitalArt[:3] %}
+              <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card h-auto w-auto">
+                  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img
+                      src="{{url_for('static',filename='/img/'+da.images)}}"
+                      class="img-fluid"
+                    />
+                    <a href="#!">
+                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">{{da.title}}</h5>
+                    <p class="card-text">
+                        {{da.description}}
+                    </p>
+                    <a href="{{url_for('single_product',product_id=da.item_id)}}" class="btn btn-custom ">View Details</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <a href="{{url_for('digitalart')}}" class="btn btn-custom" >View More</a>
+          </section>
+  
+          <hr class="my-5" />
+  
+          <!--Section: Content-->
+          <section class="text-center text-black">
+            <h3 class="mb-5"><strong>Drawing Art</strong></h3>
+  
+            <div class="row">
+                {% for drawing in drawings[:3] %}
+                <div class="col-lg-4 col-md-12 mb-4">
+                  <div class="card h-auto w-auto">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                      <img
+                        src="{{url_for('static',filename='/img/'+drawing.images)}}"
+                        class="img-fluid"
+                      />
+                      <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                      </a>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{{drawing.title}}</h5>
+                      <p class="card-text">
+                          {{drawing.description}}
+                      </p>
+                      <a href="{{url_for('single_product',product_id=drawing.item_id)}}" class="btn btn-custom ">View Details</a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+  
+            <a href="{{url_for('drawings')}}" class="btn btn-custom">View More</a>
+          </section>
+  
+          <hr class="my-5" />
+  
+          <!--Section: Content-->
+          <section class="text-center text-black">
+            <h3 class="mb-5"><strong>Handcrafts</strong></h3>
+  
+            <div class="row">
+                {% for handcraft in handcrafts[:3] %}
+                <div class="col-lg-4 col-md-12 mb-4">
+                  <div class="card  h-auto w-auto">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                      <img
+                        src="{{url_for('static',filename='/img/'+handcraft.images)}}"
+                        class="img-fluid"
+                      />
+                      <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                      </a>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{{handcraft.title}}</h5>
+                      <p class="card-text">
+                          {{handcraft.description}}
+                      </p>
+                      <a href="{{url_for('single_product',product_id=handcraft.item_id)}}" class="btn btn-custom card-link ">View Details</a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a href="{{url_for('handcrafts')}}" class="btn btn-custom">View More</a>
+          </section>
+    </main>
+<script type="text/javascript" src="js/mdb.min.js"></script>
+{% endblock %}

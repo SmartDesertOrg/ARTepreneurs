@@ -1,0 +1,163 @@
+{% extends 'layouts/boilerplate.html' %}
+{% block title %}-Sell{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="/static/css/stylboiler.css">
+<link rel="stylesheet" href="/static/css/sellerstyle.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+
+{% if current_user.is_authenticated %}
+<div class="wrapper">
+    <div class="card">
+        <h2 class="text-black-900 text-center">Sell with us!!</h2>
+        <form method="POST" action="#" class="d-flex flex-column container-fluid" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="d-flex align-items-center input-field my-3 mb-4"> <span class="far fa-user p-2"></span>
+                {{ form.artist_name.label(class="form-control-label") }}
+
+                {% if form.artist_name.errors %}
+                {{ form.artist_name(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for err in form.artist_name.errors %}
+                    <span>{{ err }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {{ form.artist_name(class="form-control") }}
+            </div>
+            <div class="d-flex align-items-center input-field my-3 mb-4"> <span class="far fa-user p-2"></span>
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                {{ form.title(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for err in form.title.errors %}
+                    <span>{{ err }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {{ form.title(class="form-control") }} </div>
+            <div class="d-flex align-items-center input-field my-3 mb-4"> <span class="far fa-user p-2"></span>
+                {{ form.description.label(class="form-control-label") }}
+                {% if form.description.errors %}
+                {{ form.description(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for err in form.description.errors %}
+                    <span>{{ err }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {{ form.description(class="form-control") }} </div>
+            <div class="d-flex align-items-center input-field my-3 mb-4"> <span class="far fa-user p-2"></span>
+                {{ form.category.label(class="form-control-label") }}
+                <select name="category">
+                    {% for choice in form.category.choices %}
+                    <option value="{{ choice }}" SELECTED>{{ choice }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="d-flex align-items-center input-field my-3 mb-4">
+                {{ form.image.label() }}
+                {{ form.image(class="form-control-file") }}
+            </div>
+            <div class="d-flex align-items-center input-field my-3 mb-4"> <span class="far fa-user p-2"></span>
+                {{ form.price.label(class="form-control-label") }}
+                {% if form.price.errors %}
+                {{ form.price(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for err in form.price.errors %}
+                    <span>{{ err }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {{ form.price(class="form-control") }}
+            </div>
+            <div class="d-flex align-items-center input-field my-3 mb-4"> <span class="far fa-user p-2"></span>
+                {{ form.quantity.label(class="form-control-label") }}
+                {% if form.quantity.errors %}
+                {{ form.quantity(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for err in form.quantity.errors %}
+                    <span>{{ err }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {{ form.quantity(class="form-control") }}
+            </div>
+            <div class="my-3">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% else %}
+
+<div id="hero-section">
+    <div class="service">
+        <div class="container">
+            <div class="section-header text-center">
+                <p>Why Choose Us?</p>
+                <h2>We believe that we can make things easier</h2>
+                <p>Sell On Artify, Put Your Amazing Artpieces on Display For All Of India to Appriciate!</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <!-- <i class="flaticon-"></i> -->
+                        </div>
+                        <div class="service-text">
+                            <h3>Free Shipping</h3>
+                            <p>All purchases over 1000rs are eligible for
+                                free shipping via UPS Pack and Ship.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <!-- <i class="flaticon-water"></i> -->
+                        </div>
+                        <div class="service-text">
+                            <h3>Easy Payments</h3>
+                            <p>All payments are processed instantly
+                                over a secure payment protocol.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <!-- <i class="flaticon-healthcare"></i> -->
+                        </div>
+                        <div class="service-text">
+                            <h3>Money-Back Gaurantee</h3>
+                            <p>If an item arrived damaged or you've
+                                changed your mind, you can send it
+                                back for a full refund.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="justify-content: center;">
+                <h5>Please login to proceed with adding your product on Artify</h5>
+                <a class="btn btn-custom" href="{{ url_for('login') }}">Log In!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonial End -->
+
+{% endif %}
+
+{% endblock %}

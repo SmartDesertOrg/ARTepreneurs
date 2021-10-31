@@ -1,0 +1,116 @@
+{% extends 'layouts/boilerplate.html' %}
+{% block title %}-Product{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="/static/js/libs/owlcarousel/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="/static/js/libs/owlcarousel/dist/assets/owl.theme.default.min.css">
+<link rel="stylesheet" href="/static/js/libs/aos/aos.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/cartstyle.css">
+{% endblock %}
+
+{% block content %}
+{% for product in products %}
+<section class="product-hero-section">
+	<div class="row mt-3 pt-5 mt-md-5">
+		<div class="col-12 col-lg-8 mb-3 mb-lg-5">
+			<div class="product-figure text-center">
+				<div class="product-carousel carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<a href="image" target="_blank"><img class="d-block img-fluid"
+									src="{{url_for('static',filename='/img/'+product.images)}}" alt=""></a>
+						</div>
+					</div>
+					<!--//carousel-inner-->
+				</div>
+				<!--//product-carousel-->
+			</div>
+			<!--//product-figure-->
+		</div>
+		<!--//col-->
+		<div class="col-12 col-lg-4 position-relative">
+
+			<div class="product-promo-wrapper"x>
+				<div class="product-details shadow-lg mb-3">
+					<h2>{{product.title}}</h2>
+					<div class="product-intro single-col-max mx-auto mb-3">
+						<h3>Artist: {{product.artist_name}}</h3>
+						<div class="product-price">
+							<div class="price-box mb-3">
+								<span class="price-current mr-2">Rs-{{product.price}}</span>
+								<span class="theme-badge">Free Shipping on orders worth over Rs-1000</span>
+							</div>
+						</div>
+						<!--//product-price-->
+						<div class="product-cta">
+							<a class="btn-custom btn" href="{{url_for('add_to_cart',product_id=product.item_id)}}"
+								target="_blank">Add to cart</a>
+						</div>
+						<!--//product-cta-->
+
+					</div>
+					<!--//product-promo-wrapper-->
+				</div>
+				<!--//col-->
+			</div>
+			<!--//row-->
+
+		</div>
+		<!--//container-->
+</section>
+<section class="features-section section">
+	<div class="container">
+		<h2 class="section-title text-black text-center">About the art</h2>
+		<div class="features-wrapper position-relative mb-5">
+
+			<div class="features-content-box">
+				<h3 class="heading mb-4">{{product.title}}</h3>
+				<div class="item mb-4">
+					<h4 class="subheading"><span class="icon-holder mr-2"><i class="fas fa-heart"></i></span>Premium
+						Quality</h4>
+					<div class="desc">{{product.description}}</div>
+				</div>
+				<!--//features-content-box-->
+			</div>
+			<!--//feature-wrapper-->
+		</div>
+	</div>
+
+		 <section id="reviews-section" class="reviews-section section theme-bg-light">
+				<div class="container-fluid">
+					<h2 class="section-title text-center">YOU MAY ALSO LIKE</h2>
+					<section class="related-section section">
+						<div class="container">
+
+							<div class="row">
+								{% for item in similar_items %}
+								<div class="col-6 col-lg-3 mb-5">
+									<div class="card w-100 text-center">
+										<a href="paint" target="_blank"><img class="img-fluid" src="{{url_for('static',filename='/img/'+item.images)}}" alt=""></a>
+										<div class="card-body">
+											<h5 class="card-title">{{item.title}}</h5>
+											<p class="card-text">{{item.category}}</p>
+											<a class="btn btn-custom" href="{{url_for('single_product',product_id=item.item_id)}}" target="_blank">Learn More</a>
+										</div>
+										<!--//card-body-->
+									</div>
+									<!--//card-->
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</section>
+				</div>	
+		</section>
+
+    <!-- Javascript -->          
+    <script src="/static/js/libs/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/libs/popper.min.js"></script>
+    <script src="/static/js/libs/bootstrap/js/bootstrap.min.js"></script>  
+    <script src="/static/js/libs/back-to-top.js"></script> 
+    <script src="/static/js/libs/owlcarousel/dist/owl.carousel.min.js"></script> 
+    <script src="/static/js/libs/jquery.scrollTo.min.js"></script> 
+    <script src="/static/js/libs/aos/aos.js"></script> 
+    <script src="/static/js/single_prod.js"></script>  
+{% endfor %}
+{% endblock %}

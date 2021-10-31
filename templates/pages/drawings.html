@@ -1,0 +1,22 @@
+{% extends 'layouts/art.html' %}
+{% block title %}-drawings{% endblock %}
+{% block art %}Drawings{% endblock %}
+{% block links %} 
+<link rel="stylesheet" href="/static/css/drawing.css">
+{% endblock %}
+{% block content %}
+{% for drawing in drawings%}
+<div class="col-6 col-lg-3 mb-5">
+    <div class="card h-auto w-auto text-center">
+        <a href="paint" target="_blank"><img class="img-fluid" src="{{url_for('static',filename='/img/'+drawing.images)}}" alt=""></a>
+        <div class="card-body">
+            <h5 class="card-title">{{ drawing.title }}</h5>
+            <p class="card-text">{{ drawing.description }}</p>
+            <a class="btn btn-custom" href="{{url_for('single_product',product_id=drawing.item_id)}}" target="_blank">Learn More</a>
+          
+            
+        </div><!--//card-body-->
+    </div><!--//card-->
+</div><!--//col-->
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,318 @@
+{% extends 'layouts/boilerplate.html' %}
+{% block title %}-Home{% endblock %}
+{% block links %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="/static/css/style.css" rel="stylesheet">
+{%endblock%}
+
+{% block content %}
+
+<!-- Carousel Start -->
+<div class="carousel container-fluid w-100">
+    <div>
+        <div class="owl-carousel">
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="/static/img/art8.jpg" alt="Image" style="opacity: 0.5;">
+                </div>
+                <div class="carousel-text">
+                    <div class="container">
+                        <div class="d-lg-inline-flex">
+                            <div style="justify-content: center;">
+                                <h1 class="g-header">ARTISAN</h1>
+                                <p>Art is unquestionably one of the purest and highest elements in human happiness.
+                                    It
+                                    trains the mind through the eye, and the eye through the mind. As the sun
+                                    colours
+                                    flowers, so does art colour life.</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="carousel-btn">
+                            <a class="btn btn-custom" href="{{ url_for('sell') }}">Sell with Us</a>
+                            <a class="btn btn-custom btn-play" href="{{url_for('categories')}}">Explore
+                                Art</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="/static/img/art9.jpg" alt="Image" style="opacity: 0.5; height: auto;">
+                </div>
+                <div class="carousel-text">
+                    <div class="container">
+                        <div class="d-lg-inline-flex">
+                            <div style="justify-content: center;">
+                                <h1 class="g-header">ARTISAN</h1>
+                                <p>Art is unquestionably one of the purest and highest elements in human happiness.
+                                    It
+                                    trains the mind through the eye, and the eye through the mind. As the sun
+                                    colours
+                                    flowers, so does art colour life.</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="carousel-btn">
+                            <a class="btn btn-custom" href="{{ url_for('sell') }}">Sell with Us</a>
+                            <a class="btn btn-custom btn-play" href="{{url_for('categories')}}">Explore
+                                Art</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="/static/img/art10.jpg" alt="Image" style="opacity: 0.5;">
+                </div>
+                <div class="carousel-text">
+                    <div class="container">
+                        <div class="d-lg-inline-flex">
+                            <div style="justify-content: center;">
+                                <h1 class="g-header">ARTISAN</h1>
+                                <p>Art is unquestionably one of the purest and highest elements in human happiness.
+                                    It
+                                    trains the mind through the eye, and the eye through the mind. As the sun
+                                    colours
+                                    flowers, so does art colour life.</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="carousel-btn">
+                            <a class="btn btn-custom" href="{{ url_for('sell') }}">Sell with Us</a>
+                            <a class="btn btn-custom btn-play" href="{{url_for('categories')}}">Explore
+                                Art</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+<!-- Service Start -->
+<div class="service">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Why Choose Us?</p>
+            <h2>We believe that we can make things easier</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <!-- <i class="flaticon-"></i> -->
+                    </div>
+                    <div class="service-text">
+                        <h3>Free Shipping</h3>
+                        <p>All purchases over 1000rs are eligible for
+                            free shipping via UPS Pack and Ship.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <!-- <i class="flaticon-water"></i> -->
+                    </div>
+                    <div class="service-text">
+                        <h3>Easy Payments</h3>
+                        <p>All payments are processed instantly
+                            over a secure payment protocol.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <!-- <i class="flaticon-healthcare"></i> -->
+                    </div>
+                    <div class="service-text">
+                        <h3>Money-Back Gaurantee</h3>
+                        <p>If an item arrived damaged or you've
+                            changed your mind, you can send it
+                            back for a full refund.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+
+<!-- Facts Start -->
+<div class="facts" data-parallax="scroll" data-image-src="/static/img/art12.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="facts-item">
+                    <i class="flaticon-home"></i>
+                    <div class="facts-text">
+                        <h3 class="facts-plus" data-toggle="counter-up"></h3>
+                        <p>Cities</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="facts-item">
+                    <i class="flaticon-kindness"></i>
+                    <div class="facts-text">
+                        <h3 class="facts-plus" data-toggle="counter-up"></h3>
+                        <p>Satisfied sellers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="facts-item">
+                    <i class="flaticon-kindness"></i>
+                    <div class="facts-text">
+                        <h3 class="facts-plus" data-toggle="counter-up"></h3>
+                        <p>Satisfied Buyers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="facts-item">
+                    <i class="flaticon-donation"></i>
+                    <div class="facts-text">
+                        <h3 class="facts-plus" data-toggle="counter-up"></h3>
+                        <p>Art sold</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Facts End -->
+
+
+<!-- Causes Start -->
+        <div class="text-center">
+            <h2><strong>Daily Trending</strong></h2>
+        </div>
+        {% for art in items %}
+        <div class="d-sm-flex" style="justify-content: space-evenly;">
+            <div class="card text-black mt-5 mb-5">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="{{url_for('static',filename='/img/' + art.images)}}" class="card-image img-thumbnail inc-size">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{art.title}}</h5>
+                    <h6>Artist : {{ art.artist_name }}</h6>
+                    <p class="card-text">{{art.description}}</p>
+                    <p><strong>Price:</strong>&#8377;{{art.price}} </p>
+                    <div class="d-flex" style="justify-content: space-evenly;">
+                        <a href="{{ url_for('add_to_cart',product_id=art.item_id) }}" class="btn btn-custom">Add to Cart</a>
+                        <a class="btn btn-custom" href="{{url_for('single_product',product_id=art.item_id)}}">View Details</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+<!-- Causes End -->
+
+
+
+<!-- Event Start -->
+<div class="event">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Upcoming Launches</p>
+            <h2>Be ready for our upcoming Launches!!!</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="event-item">
+                    <img src="/static/img/event-1.png" alt="Image">
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <p><i class="fa fa-calendar-alt"></i>01-Jan-22</p>
+                            <p><i class="far fa-clock"></i>8:00 - 10:00</p>
+                        </div>
+                        <div class="event-text">
+                            <h3>Coming Soon</h3>
+                            <p>
+                                Coming Soon
+                            </p>
+                            <a class="btn btn-custom" href="">Pre Order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="event-item">
+                    <img src="/static/img/event-1.png" alt="Image">
+                    <div class="event-content">
+                        <div class="event-meta">
+                            <p><i class="fa fa-calendar-alt"></i>01-Feb-22</p>
+                            <p><i class="far fa-clock"></i>8:00 - 10:00</p>
+                        </div>
+                        <div class="event-text">
+                            <h3>Coming Soon</h3>
+                            <p>
+                                Coming Soon
+                            </p>
+                            <a class="btn btn-custom" href="">Pre Order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Event End -->
+
+
+<!-- Contact Start -->
+<div class="contact">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Get In Touch</p>
+            <h2>Contact for any query</h2>
+        </div>
+        <div class="contact-img">
+            <img src="/static/img/art26.jpg" alt="Image">
+        </div>
+        <div class="contact-form">
+            <div id="success"></div>
+            <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                <div class="control-group">
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required="required"
+                        data-validation-required-message="Please enter your name" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <input type="email" class="form-control" id="email" placeholder="Your Email" required="required"
+                        data-validation-required-message="Please enter your email" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <input type="text" class="form-control" id="subject" placeholder="Subject" required="required"
+                        data-validation-required-message="Please enter a subject" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <textarea class="form-control" id="message" placeholder="Message" required="required"
+                        data-validation-required-message="Please enter your message"></textarea>
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div>
+                    <button class="btn btn-custom" type="submit" id="sendMessageButton">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+{% endblock %}
